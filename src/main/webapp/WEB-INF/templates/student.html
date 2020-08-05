@@ -15,5 +15,36 @@
             <br>
             <button type="submit">Отправить</button>
         </form>
+
+    <h2>Список студентов</h2>
+        <table border="1">
+            <tr>
+                <th>name</th>
+                <th>surname</th>
+                <th>graduated</th>
+            </tr>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.name}"></td>
+                <td th:text="*{student.surname}"></td>
+                <td th:text="*{student.graduated}"></td>
+
+            </tr>
+        </table>
+
+        <h2>Список преподавателей</h2>
+        <table border="1">
+            <tr>
+                <th>name</th>
+                <th>surname</th>
+                <th>isWorking</th>
+            </tr>
+            <tr th:each="tutor : ${tutors}">
+                <td th:text="${tutor.name}" ></td>
+                <td th:text="${tutor.surname}" ></td>
+                <td th:text="${tutor.isWorking()}" ></td>
+            </tr>
+        </table>
+
+
     </body>
 </html>

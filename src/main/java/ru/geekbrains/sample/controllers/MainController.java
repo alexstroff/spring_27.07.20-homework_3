@@ -7,12 +7,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import ru.geekbrains.sample.dao.StudentRepository;
+import ru.geekbrains.sample.dao.TutorRepository;
 
 @Controller
 @RequiredArgsConstructor
 public class MainController {
 
     private final StudentRepository studentRepository;
+    private final TutorRepository tutorRepository;
 
     @GetMapping("/")
     public String getIndexPage() {
@@ -21,9 +23,17 @@ public class MainController {
 
     @GetMapping("/students")
     public String getStudentPage(Model model) {
+//        model.addAttribute("students", tutorRepository.findAllTutors());
         model.addAttribute("students", studentRepository.findAllStudents());
+        model.addAttribute("tutors", tutorRepository.findAllTutors());
         return "student";
     }
+
+//    @GetMapping("/tutors")
+//    public String getTutors(Model model){
+//        model.addAttribute("егещкы", tutorRepository.findAllTutors());
+//
+//    }
 
 //    @PostMapping("/students")
 //    public String sendForm(@ModelAttribute Student student) {
