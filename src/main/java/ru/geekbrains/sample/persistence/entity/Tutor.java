@@ -1,15 +1,16 @@
 package ru.geekbrains.sample.persistence.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
-@EqualsAndHashCode (callSuper = true)
-public class Tutor extends AbstractEntity {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)public class Tutor extends AbstractEntity {
 
     private String name;
 

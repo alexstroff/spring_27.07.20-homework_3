@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GeekBrains - FORM</title>
+</head>
+<body>
+<h1>Форма отправки данных</h1>
+<form action="#" th:action="@{/phones}" method="POST" th:object="${phone}">
+    Model: <input type="text" name="model" class="form-control" placeholder="Model">
+    <br>
+    Price: <input type="number" name="price" class="form-control" placeholder="Price">
+    <br>
+    <button type="submit">Отправить</button>
+</form>
+
+<h2>Список телефонов</h2>
+<table border="1">
+    <tr>
+        <th>model</th>
+        <th>price</th>
+    </tr>
+    <tr th:each="phone : ${phones}">
+        <td th:text="${phone.model}"></td>
+        <td th:text="*{phone.price}"></td>
+
+    </tr>
+</table>
+
+    <h2>Max price</h2>
+    <table border="1">
+        <tr>
+            <th>model</th>
+            <th>price</th>
+        </tr>
+        <tr th:each="phone : ${phonemax}">
+            <td th:text="${phone.model}"></td>
+            <td th:text="*{phone.price}"></td>
+
+        </tr>
+    </table>
+
+<h2>Min price</h2>
+<table border="1">
+    <tr>
+        <th>model</th>
+        <th>price</th>
+    </tr>
+    <tr th:each="phone : ${phonemin}">
+        <td th:text="${phone.model}"></td>
+        <td th:text="*{phone.price}"></td>
+
+    </tr>
+</table>
+
+<h2>Min and max price</h2>
+<table border="1">
+    <tr>
+        <th>model</th>
+        <th>price</th>
+    </tr>
+    <tr th:each="phone : ${phoneminandmax}">
+        <td th:text="${phone.model}"></td>
+        <td th:text="*{phone.price}"></td>
+
+    </tr>
+</table>
+
+
+
+
+
+</body>
+</html>
