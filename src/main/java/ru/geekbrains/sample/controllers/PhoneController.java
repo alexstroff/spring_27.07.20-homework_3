@@ -16,8 +16,8 @@ public class PhoneController {
     private final PhoneService phoneService;
 
     @PostMapping
-    public void saveOne(@RequestBody Phone phoneDTO) {
-        phoneService.save(phoneDTO);
+    public void saveOne( @ModelAttribute("phone") Phone phone) {
+        phoneService.save(phone);
     }
 
     @GetMapping
